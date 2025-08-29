@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Car Wash Service Design System - Beautiful colors, gradients, and animations */
+
+@layer base {
+  :root {
+    /* Main color palette - Professional car wash theme */
+    --background: 220 15% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Primary - Salloum Turquoise */
+    --primary: 180 100% 50%;
+    --primary-foreground: 210 20% 98%;
+    --primary-glow: 180 80% 60%;
+
+    /* Secondary - Bright Cyan */
+    --secondary: 180 90% 45%;
+    --secondary-foreground: 220 15% 8%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 15% 70%;
+
+    --accent: 0 85% 60%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients for beautiful effects */
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 8%) 0%, hsl(180 20% 15%) 50%, hsl(220 15% 8%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%) 0%, hsl(180 80% 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(180 90% 45%) 0%, hsl(185 85% 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 12%) 0%, hsl(180 15% 15%) 100%);
+    
+    /* Beautiful shadows with brand colors */
+    --shadow-primary: 0 10px 40px -10px hsl(180 100% 50% / 0.3);
+    --shadow-secondary: 0 10px 40px -10px hsl(180 90% 45% / 0.3);
+    --shadow-elegant: 0 20px 60px -20px hsl(220 15% 8% / 0.5);
+    --shadow-glow: 0 0 60px hsl(180 80% 60% / 0.3);
+
+    /* Premium transitions and animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Service status colors */
+    --service-express: 175 80% 45%;
+    --service-full: 180 90% 45%;
+    --service-premium: 185 85% 50%;
+    --service-protection: 180 100% 50%;
+
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 180 100% 50%;
+  }
+
+  .dark {
+    /* Same as root - we're already in dark theme */
+    --background: 220 15% 8%;
+    --foreground: 210 20% 98%;
+    --card: 220 20% 12%;
+    --card-foreground: 210 20% 98%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 180 90% 45%;
+    --secondary-foreground: 220 15% 8%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 15% 70%;
+    --accent: 0 85% 60%;
+    --accent-foreground: 220 15% 8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 180 100% 50%;
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-hero);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Beautiful scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { box-shadow: var(--shadow-primary); }
+    50% { box-shadow: var(--shadow-glow); }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Utility classes for animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out;
+  }
+
+  /* Water bubble animations */
+  @keyframes water-bubble {
+    0% {
+      transform: scale(0) translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2) translateY(-10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.8) translateY(-30px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes bubble-shine {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-water-bubble {
+    animation: water-bubble 0.8s ease-out forwards;
+  }
+
+  .water-bubble {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.6), rgba(147, 197, 253, 0.8));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 4px 15px rgba(0, 255, 255, 0.3),
+      inset 0 2px 8px rgba(255, 255, 255, 0.4);
+  }
+
+  .bubble-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+  }
+
+  .bubble-shine {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: bubble-shine 0.6s ease-out forwards;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Beautiful shadows */
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .shadow-secondary {
+    box-shadow: var(--shadow-secondary);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
